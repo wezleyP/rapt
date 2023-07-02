@@ -196,7 +196,7 @@ struct RegisterView: View {
                     .hAlign(.center)
                     .fillView(.purple)
                    
-            }// login button
+            }
             .padding(10)
         }//V2
     }// VB
