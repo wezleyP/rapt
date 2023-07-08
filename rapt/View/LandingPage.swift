@@ -28,48 +28,14 @@ struct LandingPage: View {
                     .font(Font.custom("Inter", size: 15))
                     .foregroundColor(.white)
                     .frame(width: 268, height: 68, alignment: .topLeading)
-
-     Spacer()
+              
                 VStack {
-                    //Purple Rectangle
-     Spacer()
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 268, height: 75)
-                        .background(Color(red: 0.69, green: 0.24, blue: 0.76))
-                        .cornerRadius(40).overlay(Text("Join Groups").font(
-                            Font.custom("Inter", size: 20)
-                                .weight(.bold)))
-                        .shadow(color: .white.opacity(0.1), radius: 2, x: 0, y: 4)
-                        //Blue Rectangle
-     Spacer()
-                        Image("Rectangle 3")
-                          .frame(width: 268, height: 75)
-                          .background(Color(red: 0.197, green: 0.58, blue: 0.76))
-                          .cornerRadius(40)
-                          .shadow(color: .white.opacity(0.1), radius: 2, x: 3, y: 4)
-                          .overlay(Text("Complete Tasks \n earn XP").font(
-                                    Font.custom("Inter", size: 20)
-                                        .weight(.bold)))
-                          .shadow(color: .white.opacity(0.1), radius: 2, x: 0, y: 4)
-                    //Mint Rectangle
-     Spacer()
-                        Image("Rectangle 3")
-                            .frame(width: 268, height: 75)
-                            .background(Color(red: 0.5, green: 0.7, blue: 0.9))
-                            .cornerRadius(40)
-                            .shadow(color: .white.opacity(0.1), radius: 2, x: 3, y: 4)
-                            .overlay(Text("Choose your Habits").font(
-                                Font.custom("Inter", size: 20)
-                                    .weight(.bold)))
-                            .shadow(color: .white.opacity(0.1), radius: 2, x: 0, y: 4)
-     Spacer()
+                    Carousel()
                 }
-     Spacer()
             }// first VStack
             
             
-     Spacer()
+
             VStack{
                 
                 Rectangle()
@@ -120,3 +86,69 @@ struct LandingPage_Previews: PreviewProvider {
         LandingPage().preferredColorScheme(.dark)
     }
 }
+
+struct Carousel: View {
+  struct CarouselItemOne: View {
+      var body: some View {
+        VStack(spacing: 75) {
+          Text("Track your Habits and \n make it competitive")
+              .font(.title)
+          Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 268, height:75)
+            .background(Color(red: 0.16, green: 0.82, blue: 0.84))
+            .cornerRadius(20)
+            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+            .overlay(Text("").font(
+                Font.custom("Inter", size: 20)
+                    .weight(.bold)))
+          }
+        }
+  }
+  struct CarouselItemTwo: View {
+      var body: some View {
+        VStack(spacing: 30) {
+          Text("Chat with friends \nand stay up to date  with their creative endeavors.")
+              .font(.title)
+          Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 268, height: 45)
+            .background(Color(red: 0.16, green: 0.82, blue: 0.84))
+            .cornerRadius(20)
+            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+            .overlay(Text("").font(
+                Font.custom("Inter", size: 20)
+                    .weight(.bold)))
+
+          }
+        }
+  }
+  struct CarouselItemThree: View {
+      var body: some View {
+        VStack(spacing: 30) {
+          Text("Habits")
+              .font(.title)
+          Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 268, height: 45)
+            .background(Color(red: 0.16, green: 0.82, blue: 0.84))
+            .cornerRadius(20)
+            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+            .overlay(Text("").font(
+                Font.custom("Inter", size: 20)
+                    .weight(.bold)))
+
+          }
+        }
+  }
+    var body: some View {
+        TabView {
+          CarouselItemOne()
+          CarouselItemTwo()
+          CarouselItemThree()
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+    }
+}
+
+
